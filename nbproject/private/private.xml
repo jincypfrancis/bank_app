@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/example-app/resources/views/deposit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/app/Http/Requests/WithdrawPage.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/app/Http/Requests/DepositPage.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/app/Repositories/BankRepository.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/app/Http/Requests/TransferPage.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/resources/views/login.blade.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/resources/views/layouts.blade.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/resources/views/statement.blade.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/resources/views/registration.blade.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/resources/views/home.blade.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/app/Http/Requests/RegistrationPage.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/app/Http/Controllers/BankController.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/resources/views/transfer.blade.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/example-app/resources/views/withdraw.blade.php</file>
+        </group>
+    </open-files>
+</project-private>
