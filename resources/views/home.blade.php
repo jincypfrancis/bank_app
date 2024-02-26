@@ -19,14 +19,14 @@
                 <div style="padding:50px;margin-top:10px;background-color:#e4ede9;height:1500px;">
                     &nbsp;&nbsp;<b>{{ __('Welcome ') }}</b> @if(session()->has('name')){{ session('name') }}@endif
                     <br><br>
-                    <table>                     
-                        <tr>
-                            <td width="20%">{{ __('Your ID ') }}</td>
-                            <td width="80%">@if(session()->has('email')){{ session('email') }}@endif</td>
+                    <table class='hometableclass'>                     
+                        <tr >
+                            <td width="20%" class='hometdthclass'>{{ __('Your ID ') }}</td>
+                            <td width="80%" class='hometdthclass'>@if(session()->has('email')){{ session('email') }}@endif</td>
                         </tr>
-                        <tr>
-                            <td width="20%">{{ __('Your BALANCE ') }}</td>
-                            <td width="80%">@if(session()->has('balance')){{ session('balance') }}@endif</td>
+                        <tr >
+                            <td width="20%" class='hometdthclass'>{{ __('Your BALANCE ') }}</td>
+                            <td width="80%" class='hometdthclass'>@if(session()->has('balance')){{ session('balance') }}@endif</td>
                         </tr>
                     </table>                    
                 </div>
@@ -34,18 +34,7 @@
         </div>
     </div>
 </div>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 80%;
-    }
 
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-</style>
 
 @endsection
 

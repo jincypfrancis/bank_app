@@ -19,7 +19,7 @@
                         <label for="textmsg" style="color:#959e9a">{{ __('Login To Your Account') }}</label>
                         <br> <br>
                         <label for="email"><b>{{ __('Email Address') }}</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
+                        <input type="text" placeholder="Enter Email" name="email" id="email" required value="{{ old('email') }}">
 
                         <label for="psw"><b>{{ __('Password') }}</b></label>
                         <input type="password" placeholder="Enter Password" name="psw" required>

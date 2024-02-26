@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Repositories\BankRepository;
+use App\Http\Requests\LoginPage;
 use App\Http\Requests\RegistrationPage;
 use App\Http\Requests\WithdrawPage;
 use App\Http\Requests\DepositPage;
@@ -20,7 +21,7 @@ class BankController extends Controller {
         $this->bankRepo = $bankRepository;
     }
 
-    public function checkLogin(Request $request) {
+    public function checkLogin(LoginPage $request) {
         $details = $this->bankRepo->checkLogin($request);
         if ($details['id'] == 0) {
             $msg = __('Invalid Credentials..');
@@ -75,6 +76,10 @@ class BankController extends Controller {
     public function transferAmount(TransferPage $request) {
         if(Session::get('balance') < $request->amount){
             $msg = __('Error!! Balance is less than the given amount. Cannot perform Transfer.');
+            return redirect(route('transfer'))->with('error', $msg);
+        }
+        if(Session::get('email') == $request->email){
+            $msg = __('Error!! Cannot transfer money to loggined mail id.');
             return redirect(route('transfer'))->with('error', $msg);
         }
         $insertid = $this->bankRepo->transferAmount($request);

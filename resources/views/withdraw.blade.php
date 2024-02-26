@@ -40,12 +40,12 @@
                     </div> 
                     <br>                    
                     @endif
-                    <table>
+                    <table class="menutableclass">
                         <tr>
-                            <td>{{ __('Amount') }}</td>                           
+                            <td class="menutdthclass">{{ __('Amount') }}</td>                           
                         </tr>
                         <tr>
-                            <td >                               
+                            <td class="menutdthclass">                               
                                 <input type="text" min="1" maxlength="6" placeholder="Enter amount to withdraw" name="amount" id="amount" required @if(session()->has('balance') && session('balance')==0){{ 'readonly' }}@endif value="{{ old('amount') }}">
                                 <div style="display: none" id="msg"></div>
                                 @if(session()->has('balance') && session('balance')==0)
@@ -54,7 +54,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td ><button type="submit" class="loginbtn">{{ __('Withdraw') }}</button></td>
+                            <td class="menutdthclass"><button type="submit" class="loginbtn">{{ __('Withdraw') }}</button></td>
                         </tr>
                     </table>                    
                 </div>
@@ -62,19 +62,7 @@
         </div>
     </div>
 </div>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 50%;
-    }
 
-    th, td {
-        padding: 8px;
-        text-align: left;
-
-    }
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     jQuery('#amount').change(function () {
         var fieldValue = $(this).val(); // Get the value of the #amount field
@@ -93,10 +81,7 @@
             $('#msg').html("<span style='color:red'>*</span><span style='font-size:12px'> Only numeric value allowed</span>");
             $('#msg').show();
         }
-    });
-    function isNumeric(value) {
-        return /^\d+(\.\d+)?$/.test(value);
-    }    
+    });   
 </script>
 
 @endsection

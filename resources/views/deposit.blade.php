@@ -40,17 +40,17 @@
                     </div> 
                     <br>                    
                     @endif
-                    <table>
+                    <table class="menutableclass">
                         <tr>
-                            <td>{{ __('Amount') }}</td>                           
+                            <td class="menutdthclass">{{ __('Amount') }}</td>                           
                         </tr>
                         <tr>
-                            <td ><input type="text" min="1" maxlength="6" placeholder="Enter amount to deposit" name="amount" id="amount" required value="{{ old('amount') }}">
+                            <td class="menutdthclass"><input type="text" min="1" maxlength="6" placeholder="Enter amount to deposit" name="amount" id="amount" required value="{{ old('amount') }}">
                                 <div style="display: none" id="msg"></div>
                             </td>
                         </tr>
                         <tr>
-                            <td ><button type="submit" class="loginbtn">{{ __('Deposit') }}</button></td>
+                            <td class="menutdthclass"><button type="submit" class="loginbtn">{{ __('Deposit') }}</button></td>
                         </tr>
                     </table>                    
                 </div>
@@ -58,19 +58,6 @@
         </div>
     </div>
 </div>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 50%;
-    }
-
-    th, td {
-        padding: 8px;
-        text-align: left;
-
-    }
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     jQuery('#amount').change(function () {
         var fieldValue = $(this).val(); // Get the value of the #amount field
@@ -83,10 +70,7 @@
             $('#msg').show();
         }
     });
-    function isNumeric(value) {
-        return /^\d+(\.\d+)?$/.test(value);
-    }
-</script>
 
+</script>
 @endsection
 

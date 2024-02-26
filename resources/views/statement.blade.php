@@ -33,15 +33,15 @@
                     </div> 
                     <br>
                     @endif
-                    <table >
+                    <table class="hometableclass">
                         <thead>
                             <tr>
-                                <th width="5%">#</th>
-                                <th width="20%">DATETIME</th>
-                                <th width="15%">AMOUNT</th>
-                                <th width="5%">TYPE</th>
-                                <th width="30%">DETAILS</th>
-                                <th width="20%">BALANCE</th>
+                                <th width="5%" class="stmtthclass">#</th>
+                                <th width="20%" class="stmtthclass">DATETIME</th>
+                                <th width="15%" class="stmtthclass">AMOUNT</th>
+                                <th width="5%" class="stmtthclass">TYPE</th>
+                                <th width="30%" class="stmtthclass">DETAILS</th>
+                                <th width="20%" class="stmtthclass">BALANCE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,12 +54,12 @@
                             @endphp
                             @foreach($details as $user)
                             <tr>
-                                <td>{{ $slno }}</td>
-                                <td>{{ $user->transdate }}</td>
-                                <td>{{ $user->amount }}</td>
-                                <td>{{ $user->type }}</td>
-                                <td>{{ $user->remarks }}</td>
-                                <td>{{ $user->balanceafter }}</td>
+                                <td class="stmttdclass">{{ $slno }}</td>
+                                <td class="stmttdclass">{{ $user->transdate }}</td>
+                                <td class="stmttdclass">{{ $user->amount }}</td>
+                                <td class="stmttdclass">{{ $user->type }}</td>
+                                <td class="stmttdclass">{{ $user->remarks }}</td>
+                                <td class="stmttdclass">{{ $user->balanceafter }}</td>
                             </tr>
                             <?php $slno++; ?>
                             @endforeach
@@ -98,54 +98,5 @@
         </div>
     </div>
 </div>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 80%;
-    }
-
-    th {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid white;
-        color:#959e9a
-    }
-    td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid white;
-    }
-    .pagination {
-        display: flex; /* Align child elements horizontally */
-    }
-    .pagination-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        height: 5px;
-        width: 5px;
-        background-color: white;
-    }
-
-    .pagination-link {
-        display: inline-block;
-        margin: 0 5px;
-        padding: 5px 10px;
-        text-decoration: none;
-        color: #000000;
-    }
-
-    .pagination-linkactive {
-        background-color: #e4ede9;
-        color: #000000;
-        border-radius: 5px;
-        text-decoration: none;
-    }
-</style>
-
-
 @endsection
 

@@ -40,18 +40,20 @@
                     </div> 
                     <br>                    
                     @endif
-                    <table>
+                    <table class="menutableclass">
                         <tr>
-                            <td>{{ __('Email address') }}</td>                           
+                            <td class="menutdthclass">{{ __('Email address') }}</td>                           
                         </tr>
                         <tr>
-                            <td ><input type="text"  placeholder="Enter email" name="email" required value="{{ old('email') }}"></td>
+                            <td class="menutdthclass"><input type="text"  placeholder="Enter email" name="email" id="email" required value="{{ old('email') }}">
+                                <div style="display: none" id="msg2"></div>
+                            </td>
                         </tr>
                         <tr>
-                            <td>{{ __('Amount') }}</td>                           
+                            <td class="menutdthclass">{{ __('Amount') }}</td>                           
                         </tr>
                         <tr>
-                            <td ><input type="text" min="1" maxlength="6" placeholder="Enter amount to transfer" name="amount" id="amount" required @if(session()->has('balance') && session('balance')==0){{ 'readonly' }}@endif value="{{ old('amount') }}">
+                            <td class="menutdthclass"><input type="text" min="1" maxlength="6" placeholder="Enter amount to transfer" name="amount" id="amount" required @if(session()->has('balance') && session('balance')==0){{ 'readonly' }}@endif value="{{ old('amount') }}">
                                 <div style="display: none" id="msg"></div>
                                 @if(session()->has('balance') && session('balance')==0)
                                 <div  id="msg1"><span style='color:red'>*</span><span style='font-size:12px'> Balance is Zero. Cannot perform Transfer.</span></div>
@@ -59,7 +61,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td ><button type="submit" class="loginbtn">{{ __('Transfer') }}</button></td>
+                            <td class="menutdthclass"><button type="submit" class="loginbtn">{{ __('Transfer') }}</button></td>
                         </tr>
                     </table>                    
                 </div>
@@ -67,19 +69,7 @@
         </div>
     </div>
 </div>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 50%;
-    }
 
-    th, td {
-        padding: 8px;
-        text-align: left;
-
-    }
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     jQuery('#amount').change(function () {
         var fieldValue = $(this).val(); // Get the value of the #amount field       
@@ -88,7 +78,7 @@
             $('#msg').html("");
             $('#msg').hide();
             var sessionData = '<?php echo session('balance'); ?>';
-            var sessionData = parseFloat(sessionData); 
+            var sessionData = parseFloat(sessionData);
             var fieldValue = parseFloat(fieldValue);
             if (sessionData < fieldValue) {
                 $('#msg').html("<span style='color:red'>*</span><span style='font-size:12px'> Balance is less than the given amount. Cannot perform Transfer.</span>");
@@ -100,9 +90,17 @@
         }
 
     });
-    function isNumeric(value) {
-        return /^\d+(\.\d+)?$/.test(value);
-    }
+    jQuery('#email').change(function () {
+        var fieldValue = $(this).val(); // Get the value of the #amount field
+        var sessionData = '<?php echo session('email'); ?>';
+        if (sessionData == fieldValue) {
+            $('#msg2').html("<span style='color:red'>*</span><span style='font-size:12px'> Cannot transfer money to loggined mail id.</span>");
+            $('#msg2').show();
+        } else {
+            $('#msg2').html("");
+            $('#msg2').hide();
+        }
+    });
 </script>
 
 @endsection
