@@ -17,7 +17,7 @@ class RegistrationPage extends FormRequest
         return [
             'name' =>  'required|alpha',
             'email' =>  'required|email',
-            'password' =>  'required',
+            'psw' =>  'required',
             'terms' => 'accepted',
         ];
     }

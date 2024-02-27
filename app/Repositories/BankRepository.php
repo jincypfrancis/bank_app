@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class BankRepository {
 
@@ -13,7 +14,12 @@ class BankRepository {
         $res = array();
         $res['id'] = 0;
         $res['name'] = '';
-        if (!empty($login) && ($login->password == $request->psw)) {
+        $res['balance'] =0;
+        $check=0;
+        if (Hash::check($request->psw, $login->password)){
+             $check=1;
+        }
+        if (!empty($login) && ($check == 1)) {
             $res['id'] = $login->id;
             $res['name'] = $login->name;
             $res['balance'] = $login->balance;
@@ -22,7 +28,8 @@ class BankRepository {
     }
 
     public function createAccount($request) {
-        $data = ['name' => $request->name, 'email' => $request->email, 'password' => $request->psw, 'balance' => 0];
+        $encry_psw = Hash::make($request->psw );
+        $data = ['name' => $request->name, 'email' => $request->email, 'password' => $encry_psw, 'balance' => 0];
         $insertid = DB::table('bank_customer')
                 ->insertGetId($data);
         $res = 0;

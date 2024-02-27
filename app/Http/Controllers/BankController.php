@@ -29,7 +29,7 @@ class BankController extends Controller {
         } else {
             //success
             session(['id' => $details['id'], 'name' => $details['name'], 'email' => $request->email, 'balance' => $details['balance']]);
-            return view('home');
+            return redirect(route('home'));
         }
     }
 
@@ -41,7 +41,7 @@ class BankController extends Controller {
         } else {
             //success
             session(['id' => $insertid, 'name' => $request->name, 'email' => $request->email, 'balance' => 0]);
-            return view('home');
+            return redirect(route('home'));
         }
     }
 

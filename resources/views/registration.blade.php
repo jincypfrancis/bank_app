@@ -36,7 +36,7 @@
 
                         <button type="submit" class="loginbtn">{{ __('Create new account') }}</button>
                         <label>
-                            <input type="checkbox" checked="checked" name="terms"> {{ __('Agree the ') }}
+                            <input type="checkbox" checked="checked" name="terms"  id="terms"> {{ __('Agree the ') }}
                             <a href="#" style="text-decoration: none;color:#0069d9"> {{ __('terms and policy.') }}</a>                       
                         </label>
                     </div>
